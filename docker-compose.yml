@@ -1,6 +1,16 @@
 version: '2'
 
 services:
+    gunicorn:
+        image: arq-flask-app:latest
+        ports:
+            - "8000:8000"
+
+    node:
+        image: arq-express-app:latest
+        ports:
+            - "3000:3000"
+
     nginx:
         image: nginx:1.15.8
         ports:
