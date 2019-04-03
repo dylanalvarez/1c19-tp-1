@@ -1,5 +1,5 @@
 # docker build -t arq-express-app .
-# docker run arq-express-app -p 3000:3000
+# docker run -p 3000:3000 arq-express-app
 
 FROM node:10.15.3
 
