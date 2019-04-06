@@ -21,6 +21,10 @@ config:
     - name: Plain
       duration: 120
       arrivalRate: 30
+#    - name: Ramp
+#      duration: 30
+#      arrivalRate: 5 #(requests/second)
+#      rampTo: 30
 
 scenarios:
   - name: Root (/)
