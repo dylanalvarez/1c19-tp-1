@@ -6,14 +6,14 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def ping():
-    return 'Hello, World!'
+def root():
+    return '[py] Hello World'
 
 
 @app.route('/sleep/')
-def timeout():
+def sleep():
     time.sleep(1)
-    return 'Slept for 1 second'
+    return '[py] Slept for 1 second'
 
 
 @app.route('/cpu/')
@@ -21,7 +21,7 @@ def cpu():
     result = 1
     for i in range(10000000):
         result += i / result
-    return f'Result: {result}'
+    return f'[py] Result: {result}'
 
 
 if __name__ == "main":
