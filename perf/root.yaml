@@ -1,14 +1,21 @@
 config:
   environments:
     node:
-      target: 'http://localhost:5555/node'
+      target: 'http://localhost:5555/node/'
       plugins:
         statsd:
           host: localhost
           port: 8125
           prefix: "artillery-node"
+    node3:
+      target: 'http://localhost:5555/node3/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node3"
     gunicorn:
-      target: 'http://localhost:5555/gunicorn'
+      target: 'http://localhost:5555/gunicorn/'
       plugins:
         statsd:
           host: localhost
