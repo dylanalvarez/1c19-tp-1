@@ -1,0 +1,45 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+    node3:
+      target: 'http://localhost:5555/node3/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node3"
+    gunicorn:
+      target: 'http://localhost:5555/gunicorn/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-gunicorn"
+
+  pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Ramp
+      duration: 45
+      arrivalRate: 5 #(requests/second)
+      rampTo: 30
+    - name: Ramp_2
+      duration: 45
+      arrivalRate: 30 #(requests/second)
+      rampTo: 60
+    - name: Ramp_3
+      duration: 45
+      arrivalRate: 60 #(requests/second)
+      rampTo: 90
+
+scenarios:
+  - name: Sleep (/sleep)
+    flow:
+      - get:
+          url: '/sleep/'
